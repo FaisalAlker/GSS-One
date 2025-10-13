@@ -1,0 +1,35 @@
+.vscode
+electron/dist
+electron/node_modules
+electron/release
+
+# Logs
+renderer/logs
+renderer/*.log
+renderer/npm-debug.log*
+renderer/yarn-debug.log*
+renderer/yarn-error.log*
+renderer/pnpm-debug.log*
+renderer/lerna-debug.log*
+
+renderer/node_modules
+renderer/.DS_Store
+renderer/dist
+renderer/dist-ssr
+renderer/coverage
+renderer/*.local
+
+renderer//cypress/videos/
+renderer//cypress/screenshots/
+
+# Editor directories and files
+renderer/.vscode/*
+renderer/!.vscode/extensions.json
+renderer/.idea
+renderer/*.suo
+renderer/*.ntvs*
+renderer/*.njsproj
+renderer/*.sln
+renderer/*.sw?
+
+renderer/*.tsbuildinfo

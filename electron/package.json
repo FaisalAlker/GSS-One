@@ -1,0 +1,52 @@
+{
+  "name": "gss-one",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "build": {
+    "appId": "com.alker.gss.one",
+    "productName": "GSS One",
+    "icon": "icon.ico",
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "main.js",
+      "preload.js",
+      "store.js",
+      "icon.ico"
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "."
+    },
+    "asar": true,
+    "win": {
+      "icon": "icon.ico",
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development electron .",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.2",
+  "devDependencies": {
+    "electron": "^38.2.2",
+    "electron-builder": "^26.0.12",
+    "cross-env": "^10.1.0"
+  },
+  "dependencies": {
+    "electron-store": "^11.0.2"
+  }
+}
