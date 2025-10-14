@@ -3,7 +3,7 @@ import { nextTick, onMounted, ref } from 'vue';
 
 const gss_url = ref('');
 const status = ref('');
-const strictUrl = 'https://docs.google.com/spreadsheets';
+const strictUrl = 'https:';
 async function save() {
   if (gss_url.value == '') return;
   if (gss_url.value.startsWith(strictUrl)) {
@@ -13,7 +13,7 @@ async function save() {
       if (saving) {
         status.value = `Success`;
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (window as any).electronAPI?.restartApp()
+        (window as any).electronAPI?.restart()
       } else {
         status.value = `Failed`;
       }
@@ -37,7 +37,7 @@ async function getUrl() {
 async function resetApp() {
   try {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const rest = (window as any).electronAPI?.appReset()
+    const rest = (window as any).electronAPI?.reset()
     status.value = `Reset: ${rest}`;
   } catch (e) {
     status.value = `Err ${e}`;
@@ -55,9 +55,9 @@ onMounted(async () => {
     <div class="fluid-container vh-center" style="min-height: 100%;">
       <div class=" form-gap">
         <form class="form-gap" v-on:submit.prevent="save">
-          <label for="spreadsheet">Spreadsheet</label>
+          <label for="url_to_open">URL to Open</label>
           <div class="fit-input-button">
-            <input id="spreadsheet" class="base-input-url" type="text" v-model="gss_url" :placeholder="strictUrl">
+            <input id="url_to_open" class="base-input-url" type="text" v-model="gss_url" :placeholder="strictUrl">
             <button class="btn-save" type="submit">Save</button>
           </div>
         </form>

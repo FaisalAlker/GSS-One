@@ -13,7 +13,7 @@ function onSelect(event: Event) {
   if (value === 'home') router.push({ name: 'home' })
   else if (value === 'settings') router.push({ name: 'settings' })
 
-  else if (value === 'restart') (window as any).electronAPI?.restartApp()
+  else if (value === 'restart') (window as any).electronAPI?.restart()
 }
 const showWebview = ref(true);
 const tx = ref(0);
@@ -43,11 +43,11 @@ function getElectronTraffic() {
     view.addEventListener("did-attach", () => {
       const id = view.getWebContentsId();
 
-      (window as any).electronAPI.appTraffic(id);
+      (window as any).network.traffic(id);
     });
   }
 
-  (window as any).electronAPI.onAppTrafficUpdate(({ rxRate, txRate, totalUsage }: { rxRate: any; txRate: any, totalUsage: any }) => {
+  (window as any).network.trafficUpdate(({ rxRate, txRate, totalUsage }: { rxRate: any; txRate: any, totalUsage: any }) => {
     rx.value = rxRate;
     tx.value = txRate;
     dataUsage.value = totalUsage;
