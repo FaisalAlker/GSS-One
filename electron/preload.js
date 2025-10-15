@@ -3,6 +3,7 @@ const { contextBridge, ipcRenderer } = require("electron");
 contextBridge.exposeInMainWorld("electronAPI", {
   restart: () => ipcRenderer.invoke("app:restart"),
   reset: () => ipcRenderer.invoke("app:reset"),
+  dataPath: () => ipcRenderer.invoke("app:path"),
 });
 
 contextBridge.exposeInMainWorld("network", {

@@ -1,8 +1,12 @@
 const { app, BrowserWindow, screen } = require("electron");
 const path = require("path");
+const { setPortablePath } = require("./config");
 const IpcStore = require("./ipc/ipc_store");
 const IpcApp = require("./ipc/ipc_app");
 const IpcNetwork = require("./ipc/ipc_network");
+
+// Init Setup Portable Path
+setPortablePath();
 
 function createWindow() {
   const display = screen.getPrimaryDisplay();
@@ -34,5 +38,4 @@ app.whenReady().then(() => {
   IpcApp.register();
   IpcNetwork.register();
   IpcStore.register();
-  const portablePath = path.dirname(app.getPath("exe"));
 });

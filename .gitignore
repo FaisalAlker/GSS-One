@@ -2,6 +2,7 @@
 electron/dist
 electron/node_modules
 electron/release
+electron/gss-data
 
 # Logs
 renderer/logs

@@ -1,5 +1,6 @@
 const { app, ipcMain, session } = require("electron");
 const IpcStore = require("./ipc_store");
+const { portablePath } = require("../config");
 const serviceName = "IPC App:";
 
 class IpcApp {
@@ -10,6 +11,10 @@ class IpcApp {
 
     ipcMain.handle("app:reset", async () => {
       await resetAppSession();
+    });
+
+    ipcMain.handle("app:path", () => {
+      return portablePath.toString();
     });
     console.log(serviceName, "Registered");
   }
