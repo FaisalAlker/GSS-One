@@ -1,7 +1,9 @@
 {
   "name": "gss-one",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.1.0",
+  "description": "GSS One Desktop App",
+  "author": "Alker",
+  "copyright": "© 2025 GSS One. All rights reserved.",
   "main": "main.js",
   "build": {
     "appId": "com.alker.gss.one",
@@ -31,7 +33,7 @@
         {
           "target": "portable",
           "arch": [
-            "x64"
+            "ia32"
           ]
         }
       ]
@@ -42,7 +44,6 @@
     "build": "electron-builder"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.18.2",
   "devDependencies": {
