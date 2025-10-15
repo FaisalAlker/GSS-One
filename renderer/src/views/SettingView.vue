@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { nextTick, onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router'
+const router = useRouter();
 
 const gss_url = ref('');
 const status = ref('');
@@ -12,8 +14,7 @@ async function save() {
       const saving = await (window as any).prefs.set('gss_url', gss_url.value);
       if (saving) {
         status.value = `Success`;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (window as any).electronAPI?.restart()
+        router.replace({ name: 'index' });
       } else {
         status.value = `Failed`;
       }

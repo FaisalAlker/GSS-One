@@ -6,8 +6,8 @@ import BaseLayout from '@/components/layout/BaseLayout.vue'
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
-    { path: '/', component: SplashScreen },
-    { path: '/prepare', component: PrepareScreen },
+    { path: '/', name: "index", component: SplashScreen },
+    { path: '/prepare', name: "prepare", component: PrepareScreen },
     {
       path: '/',
       component: BaseLayout,
