@@ -9,11 +9,16 @@
     "icon": "icon.ico",
     "files": [
       "dist/**/*",
-      "node_modules/**/*",
+      "package.json",
+      "ipc/**/*",
       "main.js",
       "preload.js",
-      "store.js",
-      "icon.ico"
+      "config.js",
+      "icon.ico",
+      "!**/node_modules/.cache/**/*",
+      "!**/node_modules/**/*.md",
+      "!**/node_modules/**/test/**/*",
+      "!**/node_modules/**/tests/**/*"
     ],
     "directories": {
       "output": "release",
@@ -26,8 +31,7 @@
         {
           "target": "portable",
           "arch": [
-            "x64",
-            "ia32"
+            "x64"
           ]
         }
       ]
